@@ -1,0 +1,57 @@
+%h1 User Listing
+
+%table
+  %thead
+    %tr
+      %th Email
+
+  %tbody
+    - @users.each do |user|
+      - if current_user.id != user.id
+        %tr
+          %td= user.email
+          %td= link_to "Chat",chat_page_path(id: user.id)
+
+:css
+
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    background-color: #128C7E;
+    color: #fff;
+    padding: 15px;
+    margin: 0;
+    text-align: center;
+  }
+
+  table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #128C7E;
+    color: #fff;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  tr:hover {
+    background-color: #f2f2f2;
+  }
