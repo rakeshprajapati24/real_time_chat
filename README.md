@@ -5,9 +5,11 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version 3
+* Rails version 7
+* database MYSQl 5.7 
 
-* System dependencies
+* System dependencies ubuntu 
 
 * Configuration
 
