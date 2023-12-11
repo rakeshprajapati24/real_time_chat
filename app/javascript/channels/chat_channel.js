@@ -51,14 +51,14 @@ consumer.subscriptions.create("ChatChannel", {
         .then(userData => {
           const currentUserId = userData.current_user_id;
           const selected_user = userData.selected_id
-          console(selected_user)
+          console.log(selected_user)
 
           const isCurrentUser = parsedData.user_id === currentUserId;
           const isReceiver = parsedData.receiver_id === currentUserId;
           const select_person = selected_user == parsedData.receiver_id
           console.log(selected_user)
 
-          if (isCurrentUser || (isReceiver && select_person)) {
+          if (isCurrentUser || isReceiver) {
             const messageContent = document.createElement('div');
             messageContent.innerHTML = parsedData.message;
 
@@ -88,9 +88,10 @@ consumer.subscriptions.create("ChatChannel", {
 });
 function clearInputField() {
   document.getElementById('message-content').value = '';
+  document.getElementById('tinymce').value = '';
+
 }
 function scrollToBottom() {
   const chatContainer = document.getElementById('chat');
   chatContainer.scrollTop = chatContainer.scrollHeight;
 }
-
